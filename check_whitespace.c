@@ -58,8 +58,8 @@ int is_clean(char* str) {
 
   // We check if it's clean by calling strip and seeing if the
   // result is the same as the original string.
-  cleaned = strip(str);
-
+  cleaned = (char* ) strip(str);
+  
   // strcmp compares two strings, returning a negative value if
   // the first is less than the second (in alphabetical order),
   // 0 if they're equal, and a positive value if the first is
