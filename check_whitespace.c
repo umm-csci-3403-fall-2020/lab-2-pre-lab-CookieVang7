@@ -58,14 +58,16 @@ int is_clean(char* str) {
 
   // We check if it's clean by calling strip and seeing if the
   // result is the same as the original string.
-  cleaned = (char* ) strip(str);
+  cleaned = strip(str);
   
   // strcmp compares two strings, returning a negative value if
   // the first is less than the second (in alphabetical order),
   // 0 if they're equal, and a positive value if the first is
   // greater than the second.
   result = strcmp(str, cleaned);
-  free(cleaned); //cleaned is causing the memory leak, so I'm freeing it here
+  if (cleaned[0] != '\0'){ //checking to see if the cleaned string is nonempty
+	  free(cleaned); //freeing the memory if cleaned is nonempty
+  } 
   return result == 0;
 }
 
